@@ -1,0 +1,176 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Price Prediction</title>
+
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
+
+</head>
+<style>
+    body {
+    background-color: #e6eeff;
+    text-align: center;
+    position: center;
+    font-family: "Georgia", serif;
+    color: #003cb3;
+}
+
+.navbar {
+    background-color: #80aaff;
+}
+
+a {
+    color: #e6eeff;
+    font-family: "Georgia", serif;
+    text-align: center;
+    font-size: 2.5em;
+    position: center;
+}
+
+a:hover {
+    color: #ccddff;
+  }
+</style>
+
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Team Threshold Project: Flight Price Prediction</a>
+            </div>
+        </div>
+    </nav>
+
+    <br><br><br>
+
+
+    <div class="container">
+
+
+
+        <form action="\predict" method="post">
+
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Enter Departure Date</h5>
+                            <input type="datetime-local" name="Dep_Time" id="Dep_Time" required="required">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Enter Arrival Date</h5>
+                            <input type="datetime-local" name="Arrival_Time" id="Arrival_Time" required="required">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <br>
+            <br>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Starting Location</h5>
+                            <select name="Source" id="Source" required="required">
+                                <option value="Delhi">Delhi - DEL</option>
+                                <option value="Kolkata">Kolkata - KOL</option>
+                                <option value="Mumbai">Mumbai - BOM</option>
+                                <option value="Chennai">Chennai - MAA</option>
+                                <option value="Hyderabad">Hyderabad - HYD</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Ending Location</h5>
+                            <select name="Destination" id="Destination" required="required">
+                                <option value="Chennai">Chennai - MAA</option>
+                                <option value="Delhi">Delhi - DEL</option>
+                                <option value="Hyderabad">Hyderabad - HYD</option>
+                                <option value="Kolkata">Kolkata - KOL</option>
+                                <option value="Mumbai">Mumbai - BOM</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <br>
+            <br>
+            <br>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Number of Stops</h5>
+                            <select name="stops" required="required">
+                                <option value="0">Non-Stop</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Preferred Airline</h5>
+                            <select name="airline" id="airline" required="required">
+                                <option value="StarAir">Star Air</option>
+                                #<option value="IndiGo">IndiGo</option>
+                                #<option value="Air India">Air India</option>
+                                #<option value="GO FIRST">GO FIRST</option>
+                                #<option value="SpiceJet">Spice Jet</option>
+                                #<option value="Vistara">Vistara</option>
+                                #<option value="AirAsia">Air Asia</option>
+                                #<option value="Trujet">Trujet</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <br>
+            <br>
+            <br>
+            <input type="submit" value="Enter" class="btn btn-secondary">
+        </form>
+
+        <br>
+        <br>
+        <h3>{{ prediction_text }}</h3>
+
+        <br>
+        <br>
+
+    </div>
+
+
+</body>
+
+</html>
